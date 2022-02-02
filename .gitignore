@@ -35,4 +35,4 @@ yarn-error.log*
 
 // .gitignore
 .env*.local
-token Address.txt
+tokenAddress.txt
