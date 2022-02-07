@@ -81,7 +81,7 @@ const Footer = () => {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
         © 2021 Copyright &nbsp;
-        <a className="text-green-500" href="https://plastic.finance/">
+        <a className="text-green-pf hover:text-green-400" href="https://plastic.finance/">
           {process.env.APP_NAME}
         </a>
       </div>

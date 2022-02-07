@@ -25,6 +25,7 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ShowWallet from "../Modal/Content/ShowWallet";
 
 const solutions = [
   {
@@ -172,8 +173,8 @@ export default function Navbar() {
               <a
                 className={
                   router.pathname === "/"
-                    ? "font-semibold text-green-500"
-                    : "text-base font-medium text-gray-500 hover:text-green-500"
+                    ? "font-semibold text-green-pf"
+                    : "text-base font-medium text-black hover:text-green-pf"
                 }
               >
                 Home
@@ -183,8 +184,8 @@ export default function Navbar() {
               <a
                 className={
                   router.pathname === "/stake"
-                    ? "font-semibold text-green-500"
-                    : "text-base font-medium text-gray-500 hover:text-green-500"
+                    ? "font-semibold text-green-pf"
+                    : "text-base font-medium text-black hover:text-green-pf"
                 }
               >
                 Stake
@@ -195,15 +196,15 @@ export default function Navbar() {
                 <>
                   <Popover.Button
                     className={classNames(
-                      open ? "text-green-500" : "text-gray-500",
-                      "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-green-500"
+                      open ? "text-green-pf" : "text-black",
+                      "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-green-pf"
                     )}
                   >
                     <span>Solutions</span>
                     <ChevronDownIcon
                       className={classNames(
-                        open ? "text-gray-600" : "text-gray-400",
-                        "ml-2 h-5 w-5 group-hover:text-gray-500"
+                        open ? "text-black" : "text-black",
+                        "ml-2 h-5 w-5 group-hover:text-black"
                       )}
                       aria-hidden="true"
                     />
@@ -269,8 +270,8 @@ export default function Navbar() {
               href="#"
               className={
                 router.pathname === "/docs"
-                  ? "font-semibold text-green-500"
-                  : "text-base font-medium text-gray-500 hover:text-green-500"
+                  ? "font-semibold text-green-pf"
+                  : "text-base font-medium text-black hover:text-green-pf"
               }
             >
               Docs
@@ -281,8 +282,8 @@ export default function Navbar() {
                 <>
                   <Popover.Button
                     className={classNames(
-                      open ? "text-green-500" : "text-gray-500",
-                      "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-green-500"
+                      open ? "text-green-pf" : "text-black",
+                      "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-green-pf"
                     )}
                   >
                     <span>More</span>
@@ -389,7 +390,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      <Modal />
+      <Modal open={open} setOpen={setOpen}>
+        <ShowWallet />
+      </Modal>
 
       <Transition
         as={Fragment}
@@ -441,14 +444,14 @@ export default function Navbar() {
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
                   href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  className="text-base font-medium text-black hover:text-black"
                 >
                   Pricing
                 </a>
 
                 <a
                   href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  className="text-base font-medium text-black hover:text-black"
                 >
                   Docs
                 </a>
@@ -456,7 +459,7 @@ export default function Navbar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-base font-medium text-gray-900 hover:text-gray-700"
+                    className="text-base font-medium text-black hover:text-black"
                   >
                     {item.name}
                   </a>

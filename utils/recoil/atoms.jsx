@@ -1,21 +1,31 @@
-import { atom } from "recoil";
+import { atom, atomFamily } from "recoil";
 
 export const modal = atom({
-    key: 'modal',
-    default: false,
+  key: "modal",
+  default: false,
+});
+
+export const modalTx = atom({
+  key: "modalTx",
+  default: false
 })
 
 export const checkDefaultAccount = atom({
-    key: 'checkDefaultAccount',
-    default: '',
-})
+  key: "checkDefaultAccount",
+  default: "",
+});
 
 export const bnbBalance = atom({
-    key: 'bnbBalance',
-    default: '',
-})
+  key: "bnbBalance1",
+  default: "",
+});
 
 export const tokenBalance = atom({
-    key: 'tokenBalance',
-    default: '',
-})
+  key: "tokenBalance1",
+  default: 0.00,
+});
+
+export const elementPositionStateFamily = atomFamily({
+  key: "ElementPosition",
+  default: [0, 1, 3],
+});
