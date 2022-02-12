@@ -4,13 +4,15 @@
     "name": "BNB",
     "address": "0x0000000000000000000000000000000000000000",
     "symbol": "BNB",
-    "decimals": 18
+    "decimals": 18,
+    "image": "bnb.png"
   },
   {
     "id": 2,
     "name": "BUSD",
     "address": "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee",
     "symbol": "BUSD",
-    "decimals": 18
+    "decimals": 18,
+    "image": "busd-logo.png"
   }
 ]

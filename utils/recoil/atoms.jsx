@@ -1,4 +1,4 @@
-import { atom, atomFamily } from "recoil";
+import { atom } from "recoil";
 
 export const modal = atom({
   key: "modal",
@@ -23,9 +23,4 @@ export const bnbBalance = atom({
 export const tokenBalance = atom({
   key: "tokenBalance1",
   default: 0.00,
-});
-
-export const elementPositionStateFamily = atomFamily({
-  key: "ElementPosition",
-  default: [0, 1, 3],
 });

@@ -15,6 +15,7 @@ import busd from "../../../public/logo/busd-logo.png";
 import plas from "../../../public/logo/plas-logo.png";
 import Button from "../../Button/Button";
 import InputText from "../../Input/InputText";
+import Loading from "../../Loading/Loading";
 
 export default function ShowWallet() {
   const [copyText, setCopyText] = useState("Copy");
@@ -22,7 +23,6 @@ export default function ShowWallet() {
   const [checkBnbBalance, setBnbBalance] = useRecoilState(bnbBalance);
   const [checkTokenBalance, setTokenBalance] = useRecoilState(tokenBalance);
   const [account] = useRecoilValue(checkDefaultAccount);
-  const cancelButtonRef = useRef(null);
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(account);
@@ -99,34 +99,26 @@ export default function ShowWallet() {
                   </div>
                 </div>
               </div>
-              <div className="mb-3 text-left flex items-center gap-2">
+              <div className="py-4 text-left flex items-center gap-2">
                 <Image src={busd} width={20} height={20} />
                 {checkBnbBalance ? (
                   <div className="items-center text-right text-sm">
-                    BNB Balance: <span className="font-bold">{checkBnbBalance} BNB</span>
+                    BNB Balance:{" "}
+                    <span className="font-bold">{checkBnbBalance} BNB</span>
                   </div>
                 ) : (
-                  <div className="items-center text-right text-sm">
-                    BNB Balance:{" "}
-                    <span className="animate-pulse bg-gray-500 px-2 rounded-full text-gray-500">
-                      0.000000
-                    </span>
-                  </div>
+                  <Loading title="BNB Balance:" />
                 )}
               </div>
-              <div className="mb-3 text-left flex items-center gap-2">
+              <div className="text-left flex items-center gap-2">
                 <Image src={plas} width={20} height={20} />
                 {checkTokenBalance ? (
                   <div className="items-center text-right text-sm">
-                    EDIPI Balance: <span className="font-bold">{checkTokenBalance} EDIPI</span>
+                    EDIPI Balance:{" "}
+                    <span className="font-bold">{checkTokenBalance} EDIPI</span>
                   </div>
                 ) : (
-                  <div className="items-center text-right text-sm">
-                    EDIPI Balance:{" "}
-                    <span className="animate-pulse bg-gray-500 px-2 rounded-full text-gray-500">
-                      0.000000
-                    </span>
-                  </div>
+                  <Loading title="EDIPI Balance:" />
                 )}
               </div>
             </div>
@@ -137,7 +129,7 @@ export default function ShowWallet() {
             type="button"
             title="CLOSE"
             onClick={() => setOpen(false)}
-            customClasses="bg-red-600 hover:bg-red-400"
+            customClasses="bg-red-600 hover:bg-red-400 w-full"
           />
         </div>
       </div>

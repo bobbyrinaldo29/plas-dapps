@@ -9,7 +9,9 @@ import InputNumber from "../components/Input/InputNumber";
 import MetaMaskOnboarding from "@metamask/onboarding";
 import Modal from "../components/Modal/Modal";
 import ShowTx from "../components/Modal/Content/ShowTx";
-import spinner from "../public/spinner.svg";
+import plas from "../public/logo/plas-logo.png";
+import Loading from "../components/Loading/Loading";
+import Image from "next/image";
 
 const Stake = () => {
   const [open, setOpen] = useRecoilState(modalTx);
@@ -80,17 +82,15 @@ const Stake = () => {
                 Stake Balance: {stakeBalance}
               </div>
             ) : (
-              <div className="mb-5 items-center text-right text-sm">
-                Stake Balance:{" "}
-                <span className="animate-pulse bg-gray-500 px-2 rounded-full text-gray-500">
-                  0.00
-                </span>
-              </div>
+              <Loading title="Stake Balance:" />
             )}
-            <div className="mb-4">
-              <label htmlFor="stakeEDIPI" className="mb-1 block text-sm">
-                Stake EDIPI
-              </label>
+            <div className="mb-4 mt-3">
+              <div className="flex items-center mb-2 gap-1">
+                <Image src={plas} width={20} height={20} />
+                <label htmlFor="stakeEDIPI" className="text-sm">
+                  Stake EDIPI
+                </label>
+              </div>
               <InputNumber
                 placeholder="Input amount here"
                 id="stakeEDIPI"

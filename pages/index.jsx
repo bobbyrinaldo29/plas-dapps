@@ -24,7 +24,7 @@ export default function Home() {
             </div>
             <div className="mb-4">
               <div className="items-center">
-                <Selector tokenName='PLAS Token' image='plas' />
+                <Selector tokenName='EDIPI Token' image='plas' />
               </div>
               <InputNumber disabled={true} placeholder="You will receive" id="exchangeTo" />
             </div>

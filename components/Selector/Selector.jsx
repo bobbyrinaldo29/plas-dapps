@@ -12,6 +12,7 @@ function classNames(...classes) {
 
 const Selector = (props) => {
   const [selectedToken, setSelectedToken] = useState(tokenList[0]);
+  console.log(process.env.NEXT_PUBLIC_API_URL);
   return (
     <Listbox value={selectedToken} onChange={setSelectedToken}>
       {({ open }) => (
@@ -64,7 +65,7 @@ const Selector = (props) => {
                         className={({ active }) =>
                           classNames(
                             active
-                              ? "text-white bg-indigo-600"
+                              ? "text-white bg-blue-pf"
                               : "text-gray-900",
                             "cursor-default select-none relative py-2 pl-3 pr-9"
                           )
