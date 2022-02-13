@@ -132,6 +132,7 @@ export default function Navbar() {
             <a
               href="/document/New_WhitePaper.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               className={
                 router.pathname === "/whitepaper"
                   ? "font-semibold text-green-pf"
@@ -218,17 +219,18 @@ export default function Navbar() {
                     Stake
                   </a>
                 </Link>
-                <Link href="#">
-                  <a
-                    className={
-                      router.pathname === "/docs"
-                        ? "font-semibold text-green-pf"
-                        : "text-base font-medium text-black hover:text-green-pf"
-                    }
-                  >
-                    Docs
-                  </a>
-                </Link>
+                <a
+                  href="/document/New_WhitePaper.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={
+                    router.pathname === "/whitepaper"
+                      ? "font-semibold text-green-pf"
+                      : "text-base font-medium text-black hover:text-green-pf"
+                  }
+                >
+                  Whitepaper
+                </a>
               </div>
               <div>
                 <button
