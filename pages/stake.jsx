@@ -97,7 +97,7 @@ const Stake = () => {
             )}
             <div className="mb-4 mt-3">
               <div className="flex items-center mb-2 gap-1">
-                <Image src={plas} width={20} height={20} />
+                <Image src={plas} width={20} height={20} alt="plas" />
                 <label htmlFor="stakeEDIPI" className="text-sm">
                   Stake EDIPI
                 </label>

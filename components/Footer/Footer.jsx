@@ -14,7 +14,7 @@ const Footer = () => {
     >
       <div className="container pt-9">
         <div className="my-5">
-          <Image src={logoWhite} width={150} height={55} />
+          <Image src={logoWhite} width={150} height={55} alt="logo" />
         </div>
         <p className="text-xs text-gray-400 mb-5 px-5 mx-4 leading-6">
           As Always, Please DO YOUR OWN RESEARCH Before Investing Any Of Your
@@ -36,31 +36,31 @@ const Footer = () => {
             href="mailto:info@plastic.finance"
             className="mr-9 text-white opacity-75 hover:opacity-100 transition-opacity delay-150"
           >
-            <Image src={email} width={15} height={15} />
+            <Image src={email} width={15} height={15} alt="email" />
           </a>
           <a
             href="https://fb.com/plastic.finance"
             className="mr-9 text-white opacity-75 hover:opacity-100 transition-opacity delay-150"
           >
-            <Image src={facebook} width={15} height={15} />
+            <Image src={facebook} width={15} height={15} alt="facebook" />
           </a>
           <a
             href="https://twitter.com/plastic_finance"
             className="mr-9 text-white opacity-75 hover:opacity-100 transition-opacity delay-150"
           >
-            <Image src={twitter} width={15} height={15} />
+            <Image src={twitter} width={15} height={15} alt="twitter" />
           </a>
           <a
             href="https://t.me/plasticfinance"
             className="mr-9 text-white opacity-75 hover:opacity-100 transition-opacity delay-150"
           >
-            <Image src={telegram} width={15} height={15} />
+            <Image src={telegram} width={15} height={15} alt="telegram" />
           </a>
           <a
             href="https://instagram.com/plasticfinance"
             className="text-white opacity-75 hover:opacity-100 transition-opacity delay-150"
           >
-            <Image src={instagram} width={15} height={15} />
+            <Image src={instagram} width={15} height={15} alt="instagram" />
           </a>
         </div>
       </div>

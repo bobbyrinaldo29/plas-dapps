@@ -100,7 +100,7 @@ export default function ShowWallet() {
                 </div>
               </div>
               <div className="py-4 text-left flex items-center gap-2">
-                <Image src={busd} width={20} height={20} />
+                <Image src={busd} width={20} height={20} alt="busd" />
                 {checkBnbBalance ? (
                   <div className="items-center text-right text-sm">
                     BNB Balance:{" "}
@@ -111,7 +111,7 @@ export default function ShowWallet() {
                 )}
               </div>
               <div className="text-left flex items-center gap-2">
-                <Image src={plas} width={20} height={20} />
+                <Image src={plas} width={20} height={20} alt="plas" />
                 {checkTokenBalance ? (
                   <div className="items-center text-right text-sm">
                     EDIPI Balance:{" "}
