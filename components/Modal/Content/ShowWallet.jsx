@@ -33,27 +33,30 @@ export default function ShowWallet() {
   };
 
   useEffect(() => {
-    if (account) {
-      InitialWeb3.eth.subscribe("newBlockHeaders", (err, result) => {
-        if (err) {
-          console.log(err);
-        } else {
-          InitialWeb3.eth.getBalance(account, function (error, wei) {
-            if (!error) {
-              let balance = Number(InitialWeb3.utils.fromWei(wei, "ether")).toFixed(4);
-              setBnbBalance(balance);
-            }
-          });
-
-          InitialContract.methods
-            .balanceOf(account)
-            .call()
-            .then(InitialWeb3.utils.fromWei)
-            .then(setTokenBalance);
-        }
-      });
+    function wallet() {
+      if (account) {
+        InitialWeb3.eth.subscribe("newBlockHeaders", (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            InitialWeb3.eth.getBalance(account, function (error, wei) {
+              if (!error) {
+                let balance = Number(InitialWeb3.utils.fromWei(wei, "ether")).toFixed(4);
+                setBnbBalance(balance);
+              }
+            });
+  
+            InitialContract.methods
+              .balanceOf(account)
+              .call()
+              .then(InitialWeb3.utils.fromWei)
+              .then(setTokenBalance);
+          }
+        });
+      }
+      return null;
     }
-    return null;
+    wallet()
   }, [account]);
 
   return (

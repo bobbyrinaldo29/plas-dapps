@@ -258,6 +258,7 @@ export default function Navbar() {
                   <a
                     href="https://plastic.finance"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-green-pf"
                   >
                     Plastic Finance
