@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { checkDefaultAccount, modalHash, modalTx } from "../utils/recoil/atoms";
-import Layout from "../components/Layout/Layout";
 import Button from "../components/Button/Button";
 import InitialStake from "../utils/wallet/initialStake";
 import InitialWeb3 from "../utils/wallet/InitialWeb3";
@@ -84,7 +83,7 @@ const Stake = () => {
   };
 
   return (
-    <Layout>
+    <>
       <div className="flex items-center h-screen w-full bg-slate-200">
         <form className="container w-96 mx-auto p-8" onSubmit={onSubmitEvent}>
           <div className="bg-white rounded-3xl shadow-lg p-8">
@@ -132,7 +131,7 @@ const Stake = () => {
           <TxFailed errorMessage={txError.message} errorCode={txError.code} />
         )}
       </ModalHash>
-    </Layout>
+    </>
   );
 };
 

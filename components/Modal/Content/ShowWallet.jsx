@@ -41,8 +41,7 @@ export default function ShowWallet() {
           } else {
             InitialWeb3.eth.getBalance(account, function (error, wei) {
               if (!error) {
-                let balance = Number(InitialWeb3.utils.fromWei(wei, "ether")).toFixed(4);
-                setBnbBalance(balance);
+                setBnbBalance(Number(InitialWeb3.utils.fromWei(wei, "ether")).toFixed(4));
               }
             });
   
@@ -54,10 +53,9 @@ export default function ShowWallet() {
           }
         });
       }
-      return null;
     }
     wallet()
-  }, [account]);
+  }, [account]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Transition.Child

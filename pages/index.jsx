@@ -1,22 +1,21 @@
 import Button from "../components/Button/Button";
-import Layout from "../components/Layout/Layout";
 import InputNumber from "../components/Input/InputNumber";
 import Selector from "../components/Selector/Selector";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { checkDefaultAccount, modalHash, modalTx } from "../utils/recoil/atoms";
 import InitialContract from "../utils/wallet/initialContract";
 import InitialWeb3 from "../utils/wallet/InitialWeb3";
-import { useState } from "react/cjs/react.development";
 import Modal from "../components/Modal/Modal";
 import ShowTx from "../components/Modal/Content/ShowTx";
 import ModalHash from "../components/Modal/ModalHash";
 import TxFailed from "../components/Modal/Content/TxFailed";
 import TxSuccess from "../components/Modal/Content/TxSuccess";
+import { useState } from "react";
 
 export default function Home() {
   const [open, setOpen] = useRecoilState(modalTx);
   const [modalShow, setModalShow] = useRecoilState(modalHash);
-  const [account] = useRecoilValue(checkDefaultAccount);
+  const [account, setAccounts] = useRecoilState(checkDefaultAccount);
   const [inputNum, setInputNum] = useState("");
   const [txHash, setTxHash] = useState("");
   const [txError, setTxError] = useState({ code: "", message: "" });
@@ -67,7 +66,7 @@ export default function Home() {
   };
 
   return (
-    <Layout>
+    <>
       <div className="flex items-center h-screen w-full bg-slate-200">
         <form className="container w-96 mx-auto p-8" onSubmit={onHandleSubmit}>
           <div className="bg-white rounded-3xl shadow-lg p-8">
@@ -117,6 +116,6 @@ export default function Home() {
           <TxFailed errorMessage={txError.message} errorCode={txError.code} />
         )}
       </ModalHash>
-    </Layout>
+    </>
   );
 }
