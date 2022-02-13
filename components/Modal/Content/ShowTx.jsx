@@ -35,7 +35,6 @@ export default function ShowTx() {
                   layout="fill"
                   objectFit="cover"
                   priority
-                  alt="loading"
                 />
               </div>
             </div>

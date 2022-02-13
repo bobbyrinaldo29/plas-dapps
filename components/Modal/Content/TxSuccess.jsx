@@ -35,6 +35,7 @@ const TxSuccess = (props) => {
               <div className="pb-4 text-center">
                 <a
                   target="_blank"
+                  rel="noreferrer"
                   href={"https://testnet.bscscan.com/tx/" + props.linkHash}
                   className="transition duration-300 ease-in-out whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border-2 rounded-full shadow-sm text-sm font-medium border-green-pf text-green-pf hover:bg-green-pf hover:text-white hover:shadow-lg"
                 >
