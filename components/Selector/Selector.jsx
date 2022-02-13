@@ -12,7 +12,6 @@ function classNames(...classes) {
 
 const Selector = (props) => {
   const [selectedToken, setSelectedToken] = useState(tokenList[0]);
-  console.log(process.env.NEXT_PUBLIC_API_URL);
   return (
     <Listbox value={selectedToken} onChange={setSelectedToken}>
       {({ open }) => (
@@ -88,7 +87,7 @@ const Selector = (props) => {
                                   "ml-3 block truncate"
                                 )}
                               >
-                                {props.tokenName ? props.tokenName : token.name}
+                                {token.name}
                               </span>
                             </div>
 

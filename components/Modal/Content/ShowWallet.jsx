@@ -4,7 +4,7 @@ import {
   modal,
   tokenBalance,
 } from "../../../utils/recoil/atoms";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import InitialWeb3 from "../../../utils/wallet/InitialWeb3";
 import InitialContract from "../../../utils/wallet/initialContract";
@@ -40,7 +40,7 @@ export default function ShowWallet() {
         } else {
           InitialWeb3.eth.getBalance(account, function (error, wei) {
             if (!error) {
-              let balance = InitialWeb3.utils.fromWei(wei, "ether");
+              let balance = Number(InitialWeb3.utils.fromWei(wei, "ether")).toFixed(4);
               setBnbBalance(balance);
             }
           });

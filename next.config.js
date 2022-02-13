@@ -8,5 +8,7 @@ module.exports = {
     SYMBOL: process.env.SYMBOL,
     DECIMALS: process.env.DECIMALS,
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    EDIPI_ADDRESS: process.env.EDIPI_ADDRESS,
+    EDIPI_STAKE: process.env.EDIPI_STAKE,
   }
 }

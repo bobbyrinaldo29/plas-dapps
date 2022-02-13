@@ -10,6 +10,11 @@ export const modalTx = atom({
   default: false
 })
 
+export const modalHash = atom({
+  key: "modalHash",
+  default: false
+})
+
 export const checkDefaultAccount = atom({
   key: "checkDefaultAccount",
   default: "",

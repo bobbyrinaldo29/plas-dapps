@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { checkDefaultAccount, modalTx } from "../utils/recoil/atoms";
+import { checkDefaultAccount, modalHash, modalTx } from "../utils/recoil/atoms";
 import Layout from "../components/Layout/Layout";
 import Button from "../components/Button/Button";
 import InitialStake from "../utils/wallet/initialStake";
@@ -12,13 +12,19 @@ import ShowTx from "../components/Modal/Content/ShowTx";
 import plas from "../public/logo/plas-logo.png";
 import Loading from "../components/Loading/Loading";
 import Image from "next/image";
+import ModalHash from "../components/Modal/ModalHash";
+import TxSuccess from "../components/Modal/Content/TxSuccess";
+import TxFailed from "../components/Modal/Content/TxFailed";
 
 const Stake = () => {
   const [open, setOpen] = useRecoilState(modalTx);
+  const [modalShow, setModalShow] = useRecoilState(modalHash);
   const [account] = useRecoilValue(checkDefaultAccount);
   const [setAccounts] = useRecoilState(checkDefaultAccount);
   const [stakeBalance, setStakeBalance] = useState("");
   const [inputStake, setInputStake] = useState("");
+  const [txHash, setTxHash] = useState("");
+  const [txError, setTxError] = useState({ code: "", message: "" });
   const onboarding = useRef();
 
   useEffect(() => {
@@ -51,11 +57,16 @@ const Stake = () => {
           .createStake(InitialWeb3.utils.toWei(inputStake))
           .send({ from: account }, (err, transactionHash) => {
             if (err) {
+              setTxError({ code: err.code, message: err.message });
               console.log(err);
             }
             if (transactionHash !== null) {
+              setTxHash(transactionHash);
               console.log(transactionHash);
               setOpen(false);
+              setTimeout(() => {
+                setModalShow(true);
+              }, 3000);
             }
           });
       } else {
@@ -114,6 +125,13 @@ const Stake = () => {
       <Modal open={open} setOpen={() => setOpen(true)}>
         <ShowTx />
       </Modal>
+      <ModalHash modalShow={modalShow} setModalShow={() => setModalShow(true)}>
+        {txHash ? (
+          <TxSuccess linkHash={txHash} />
+        ) : (
+          <TxFailed errorMessage={txError.message} errorCode={txError.code} />
+        )}
+      </ModalHash>
     </Layout>
   );
 };
