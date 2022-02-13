@@ -31,7 +31,7 @@ export default function Home() {
         setOpen(true);
         InitialContract.methods.deposit().send(
           {
-            from: account,
+            from: account.toString().toLowerCase(),
             gas: 3000000,
             value: InitialWeb3.utils.toWei(inputNum),
           },
